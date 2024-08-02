@@ -17,7 +17,7 @@ public class Sudoku {
         }
     }
 
-    static boolean isNumberInRow(int[][] board, int number, int row) {
+    private static boolean isNumberInRow(int[][] board, int number, int row) {
         for (int i = 0; i < BOARD_SIZE; i++) {
             if (board[row][i] == number) {
                 return true;
@@ -26,7 +26,7 @@ public class Sudoku {
         return false;
     }
 
-    static boolean isNumberInColumn(int[][] board, int number, int column) {
+    private static boolean isNumberInColumn(int[][] board, int number, int column) {
         for (int i = 0; i < BOARD_SIZE; i++) {
             if (board[i][column] == number) {
                 return true;
@@ -35,7 +35,7 @@ public class Sudoku {
         return false;
     }
 
-    static boolean isNumberInBox(int[][] board, int number, int row, int column) {
+    private static boolean isNumberInBox(int[][] board, int number, int row, int column) {
         int localBoxRow = row - row % 3;
         int localBoxColumn = column - column % 3;
 
@@ -49,7 +49,7 @@ public class Sudoku {
         return false;
     }
 
-    static boolean isValidPlacement(int[][] board, int number, int row, int column) {
+    private static boolean isValidPlacement(int[][] board, int number, int row, int column) {
         return !isNumberInRow(board, number, row) &&
                 !isNumberInColumn(board,number,column)&&
                 !isNumberInBox(board,number,row,column);
